@@ -8,11 +8,19 @@ def home():
 import joblib
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+from huggingface_hub import hf_hub_download
 
-model = joblib.load(BASE_DIR / "models" / "best_random_forest.pkl")
-preprocessor = joblib.load(BASE_DIR / "models" / "preprocessor.pkl")
-print("PREPROCESSOR PATH:", BASE_DIR / "models" / "preprocessor.pkl")
+REPO_ID = "Jad0011/car-price-prediction-model"
+
+model_path = hf_hub_download(
+    repo_id=REPO_ID,
+    filename="best_random_forest.pkl")
+preprocessor_path = hf_hub_download(
+    repo_id=REPO_ID,
+    filename="preprocessor.pkl")
+model = joblib.load(model_path)
+preprocessor = joblib.load(preprocessor_path)
+
 print("API PREPROCESSOR:", preprocessor.feature_names_in_)
 from pydantic import BaseModel
 class CarInput(BaseModel):
