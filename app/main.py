@@ -22,10 +22,10 @@ REPO_ID = "Jad0011/car-price-prediction-model"
 
 model_path = hf_hub_download(
     repo_id=REPO_ID,
-    filename="best_random_forest.pkl")
+    filename="best_random_forest.pkl",cache_dir="/tmp/huggingface")
 preprocessor_path = hf_hub_download(
     repo_id=REPO_ID,
-    filename="preprocessor.pkl")
+    filename="preprocessor.pkl",cache_dir="/tmp/huggingface")
 model = joblib.load(model_path)
 preprocessor = joblib.load(preprocessor_path)
 
