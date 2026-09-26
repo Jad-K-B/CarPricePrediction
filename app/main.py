@@ -1,3 +1,6 @@
+import os 
+os.environ["HF_HUB_DISABLE_XET"]="1"
+os.environ["HF_HOME"]="/tmp/huggingface"
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
