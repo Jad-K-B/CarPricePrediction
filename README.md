@@ -74,7 +74,6 @@ The frontend code is inside the frontend folder.
 - FastAPI
 - React
 - TypeScript
-- Vite
 
 ## Running the project
 
